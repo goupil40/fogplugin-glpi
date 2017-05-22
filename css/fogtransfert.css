@@ -1,0 +1,103 @@
+/** fogtransfert.css
+**	Fichier de style CSS pour Fogplugin
+**/
+
+.grey
+{
+	background: #858585;
+	color: #000000;
+}
+
+.green
+{
+	background: #76E887;
+	color: #000000;
+}
+
+.orange
+{
+	background: #E8B67C;
+	color: #000000;
+}
+
+.red
+{
+	background: #E87C8D;
+	color: #000000;
+}
+
+h1.init
+{
+	color: #000000;
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+h1.initbis
+{
+	color: #000000;
+	font-size: 18px;
+	margin: 20px 0 5px 0;
+}
+
+.listconseil
+{
+	list-style: square;
+	margin: 0 0 2px 20px;
+}
+
+li.spacer
+{
+	margin: 0 0 8px;
+}
+
+#box{
+	
+	width: 700px;
+	font-size: 12px;
+	margin: 0 0 30px 0;
+}
+
+.lien_afficher_masquer, a.lien_afficher_masquer
+{
+	color: #000000;
+}
+
+#contenu_grey, #contenu_green, #contenu_orange, #contenu_red
+{
+	padding: 10px 0 10px 10px;
+}
+
+.mysql_error_green
+{
+	font-style: italic;
+	font-size: 13px;
+	margin: 0 0 0 5px;
+}
+
+sup 
+{
+	margin-top: 155px;
+	margin-left: -60px;
+	position: absolute;
+	vertical-align: text-top;
+}
+
+input[class="fogsbmit"]
+{
+	height: 25px;
+	font-size: 12px;
+	padding: 3px;
+   height: auto;
+   font: bold 12px Arial, Helvetica;
+   color: #8f5a0a;
+   background-color: #ffb94b;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+   background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+   background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+   background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+   background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+   background-image: linear-gradient(top, #fddb6f, #ffb94b);
+}
+
+
