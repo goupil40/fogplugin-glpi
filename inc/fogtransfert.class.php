@@ -218,7 +218,7 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
             // Compteurs
             if(sizeof($glpi) < 1)
             {
-                    echo '<div id="box" class="grey">
+                    echo '<div id="fogbox" class="grey">
                     <br>&nbsp; &nbsp;<b>Actuellement dans FOG ('.sizeof($fog_hostName).')</b>&nbsp; &nbsp;<a href="#contenu_grey" onclick="contenu_grey()" class="lien_afficher_masquer">Afficher/Masquer</a><br><br>
                     <div id="contenu_grey" style="display:block;">
                     <table border="0">'."\n";
@@ -235,7 +235,7 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
             }
             else
             {
-                    echo '<div id="box" class="green">
+                    echo '<div id="fogbox" class="green">
                     <br>&nbsp; &nbsp;<b>Déjà présents dans FOG ('.$compteur_green.')</b>&nbsp; &nbsp;<a href="#contenu_green" onclick="contenu_green()" class="lien_afficher_masquer">Afficher/Masquer</a><br><br>
                     <div id="contenu_green" style="display:none;">
                     <table border="0">'."\n";
@@ -264,7 +264,7 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
                     echo '</table>
                     </div>
                     </div>
-                    <div id="box" class="orange">
+                    <div id="fogbox" class="orange">
                     <br>&nbsp; &nbsp;<b>Requièrent votre attention ('.$compteur_orange.')</b>&nbsp; &nbsp;<a href="#contenu_orange" onclick="contenu_orange()" class="lien_afficher_masquer">Afficher/Masquer</a><br><br>
                     <div id="contenu_orange" style="display:'.$display_orange.';">'."\n";
                     for($i = 0; $i < sizeof($glpi); $i++)
@@ -295,7 +295,7 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
                     }
                     echo '</div>
                     </div>
-                    <div id="box" class="red">
+                    <div id="fogbox" class="red">
                     <br>&nbsp; &nbsp;<b>Pouvant être ajoutés à FOG ('.$compteur_red.')</b>&nbsp; &nbsp;<a href="#contenu_red" onclick="contenu_red()" class="lien_afficher_masquer">Afficher/Masquer</a><br><br>
                     <div id="contenu_red" style="display:'.$display_red.';">'."\n";
                     if($compteur_red > 0)
