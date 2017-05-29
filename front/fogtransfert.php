@@ -76,7 +76,7 @@ if(isset($_GET['fog_add_hosts']))
 				{
 					$checkbox = $_GET['checkbox'];
                                         echo "<center>";
-					echo '<div id="box" class="green">
+					echo '<div id="fogbox" class="green">
 					<br>&nbsp; &nbsp;<b>Viennent d\'être exportés vers FOG ('.sizeof($checkbox).')</b><br><br>
 					<div id="contenu_green">
 					<table border="0">'."\n";
