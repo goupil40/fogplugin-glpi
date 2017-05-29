@@ -25,7 +25,7 @@
 	background: #E87C8D;
 	color: #000000;
 }
-
+/*
 h1.init
 {
 	color: #000000;
@@ -49,9 +49,9 @@ h1.initbis
 li.spacer
 {
 	margin: 0 0 8px;
-}
+}*/
 
-#box{
+#fogbox{
 	
 	width: 700px;
 	font-size: 12px;
@@ -75,15 +75,15 @@ li.spacer
 	margin: 0 0 0 5px;
 }
 
-sup 
+/*sup
 {
 	margin-top: 155px;
 	margin-left: -60px;
 	position: absolute;
 	vertical-align: text-top;
-}
+}*/
 
-input[class="fogsbmit"]
+.fogsbmit
 {
 	height: 25px;
 	font-size: 12px;
