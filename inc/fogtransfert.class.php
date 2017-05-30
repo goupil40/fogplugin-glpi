@@ -36,20 +36,25 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
     
 // Should return the localized name of the type
    static function getTypeName($nb = 0) {
-      return 'Fog Transfert';
+      return 'Transfert FOG';
    }
    
     static function getMenuName() {
-      return __('Fog Transfert');
+      return __('Transfert FOG');
    }
    // permet d'afficher le plugin dans le menu et d'y accèder
-   static function canView() {
+   /*static function canView() {
 
       if (isset($_SESSION["glpi_plugin_fogplugin_profile"])) {
          return ($_SESSION["glpi_plugin_fogplugin_profile"]['fogplugin'] == 'w'
                  || $_SESSION["glpi_plugin_fogplugin_profile"]['fogplugin'] == 'r');
       }
       return false;
+   }*/
+   public static function canView()
+   {
+       
+      return Session::haveRight("computer", UPDATE);
    }
   // affiche le menu déroulant et prépare la suite de l'affichage
    function showForm($ID, $options=array()) {
@@ -165,7 +170,26 @@ class PluginFogpluginFogtransfert extends CommonDBTM {
          echo "<td colspan='2' class='center'>";
          echo "<center>";
          //////////////////////////////////// Affichage des postes informatique présents et à ajouter dans Fog ///////////////////////////////////
-            $requete_pcs_glpi = "SELECT glpi_computers.name, glpi_networkports.mac FROM glpi_computers, glpi_networkports WHERE glpi_computers.id = glpi_networkports.items_id AND glpi_computers.is_deleted = 0 AND glpi_networkports.mac != '' AND glpi_networkports.logical_number = '1' ORDER BY glpi_computers.name";
+            $requete_pcs_glpi = "(SELECT glpi_computers.name, glpi_networkports.mac 
+                                    FROM glpi_computers, glpi_networkports, glpi_ipaddresses, glpi_networknames
+                                    WHERE glpi_computers.id = glpi_networkports.items_id 
+                                    AND glpi_computers.id = glpi_ipaddresses.mainitems_id 
+                                    AND glpi_networknames.id = glpi_ipaddresses.items_id 
+                                    AND glpi_networknames.items_id = glpi_networkports.id 
+                                    AND glpi_ipaddresses.name != '0.0.0.0'
+                                    AND glpi_computers.is_deleted = '0' 
+                                    AND (glpi_networkports.mac != '' OR glpi_networkports.mac != '00:00:00:00:00:00') 
+                                    AND instantiation_type = 'NetworkPortEthernet' 
+                                    AND (glpi_networkports.logical_number = '0' OR glpi_networkports.logical_number = '1'))
+                                    UNION ALL
+                                    (SELECT glpi_computers.name, glpi_networkports.mac 
+                                    FROM glpi_computers, glpi_networkports 
+                                    WHERE glpi_computers.id = glpi_networkports.items_id
+                                    AND glpi_computers.is_deleted = 0
+                                    AND glpi_networkports.comment like '%injection de fichiers%'
+                                    AND glpi_networkports.mac != '' 
+                                    AND (glpi_networkports.logical_number = '0' OR glpi_networkports.logical_number = '1'))
+                                    ORDER BY name ASC";
             $query_pcs_glpi = $DB->query($requete_pcs_glpi);
             while($pcs_glpi = $query_pcs_glpi->fetch_array(MYSQLI_ASSOC))
             {
