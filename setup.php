@@ -37,8 +37,7 @@ function plugin_init_fogplugin() {
    $PLUGIN_HOOKS['csrf_compliant']['fogplugin'] = true;
    
    // Display a menu entry ?
-   $_SESSION["glpi_plugin_fogplugin_profile"]['fogplugin'] = 'w';
-   if (isset($_SESSION["glpi_plugin_fogplugin_profile"])) { // Right set in change_profile hook
+       if ($_SESSION["glpiactiveprofile"]["interface"]=="central"){
       $PLUGIN_HOOKS['menu_toadd']['fogplugin'] = array('plugins' => 'PluginFogpluginFogplugin',
                                                      'tools'   => 'PluginFogpluginFogtransfert');
       $PLUGIN_HOOKS["helpdesk_menu_entry"]['fogplugin'] = true;
